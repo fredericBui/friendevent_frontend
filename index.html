@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+        #events {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #events div {
+            border: 1px solid #333;
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Events</h1>
+    <div id="events"></div>
+    <script>
+        fetch('http://127.0.0.1:8000/api/events?page=1')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.member);
+                let events = data.member;
+                let eventsDiv = document.getElementById('events');
+                events.forEach(event => {
+                    let eventDiv = document.createElement('div');
+                    eventDiv.innerHTML = `
+                        <h2>${event.name}</h2>
+                        <p>${event.date}</p>
+                    `;
+                    eventsDiv.appendChild(eventDiv);
+                });
+            });
+    </script>
+</body>
+</html>
