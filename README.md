@@ -17,6 +17,12 @@ The frontend connects to the following API endpoints:
 
 - `GET /api/events` - Retrieve a list of events
 
+## Start with Docker
+```
+docker build . -t frienevent_frontend
+docker run --name friendevent_frontend -p 8089:80 frienevent_frontend
+```
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any changes.
