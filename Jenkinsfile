@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CI') {
             steps {
-                git branch: 'main', url: 'https://github.com/fredericBui/friendevent_backend.git'
+                git branch: 'main', url: 'https://github.com/fredericBui/friendevent_frontend.git'
             }
         }
     }
