@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'agent_nodejs'
+        }
+    }
 
     stages {
         stage('CI') {

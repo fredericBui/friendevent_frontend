@@ -19,8 +19,22 @@ The frontend connects to the following API endpoints:
 
 ## Start with Docker
 ```
-docker build . -t frienevent_frontend
-docker run --name friendevent_frontend -p 8089:80 frienevent_frontend
+docker build . -t friendevent_frontend
+docker run --name friendevent_frontend -p 8089:80 friendevent_frontend
+```
+
+## Start with K8S
+Kubernetes will use the last image push on Dockerhub
+```
+kubectl apply -f deployment.yaml
+kubectl get pods -w
+kubectl get services
+minikube service friendevent-frontend-service
+```
+
+To destroy
+```
+kubectl delete -f deployment.yaml
 ```
 
 ## Contributing
